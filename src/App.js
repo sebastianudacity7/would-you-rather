@@ -13,14 +13,15 @@ import { Route } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <NavBar/>
 
-      <Route exact path="/" component={HomePage} /> 
-      <Route path="/leaderboard" component={LeaderBoard} /> 
-      <Route path="/myquestions" component={MyQuestions} /> 
-      <Route path="/new" component={NewQuestion} /> 
-      <Route path="/login" component={LoginPage} /> 
-      <Route path="/poll/:id" component={PollPage} /> 
+      <NavBar />
+
+      <Route exact path="/" component={HomePage} />
+      <Route path="/leaderboard" component={LeaderBoard} />
+      <Route path="/myquestions" component={MyQuestions} />
+      <Route path="/new" component={NewQuestion} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/poll/:id" component={PollPage} />
 
     </div>
   );
