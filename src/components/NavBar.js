@@ -1,6 +1,7 @@
 import React from 'react'
 
 import NavBarItem from './NavBarItem'
+import CurrentUser from './CurrentUser'
 
 
 const NavBar = () => {
@@ -9,8 +10,9 @@ const NavBar = () => {
         <NavBarItem text="Home" path="/"  />
         <NavBarItem text="Leader Board" path="/leaderboard" />
         <NavBarItem text="My Questions" path="/myquestions" />
-        <NavBarItem text="New Question" path="/new" />
-        <NavBarItem text="Login" path="/login" last={true} />
+        <NavBarItem text="New Question" path="/new" last={true} />
+        <CurrentUser/>
+
     </div>)
 }
 

@@ -1,13 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { useLocation } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 
 const SecureRoute = (props) => {
 
-    const location = useLocation()
-    const { authUser } = props
+    const { authUser,location } = props
 
     return (
         authUser
