@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css'
 
+import { connect } from 'react-redux'
+
 import NavBar from './components/NavBar'
 import HomePage from './components/HomePage'
 import LeaderBoard from './components/LeaderBoard'
@@ -10,11 +12,12 @@ import LoginPage from './components/LoginPage'
 import PollPage from './components/PollPage'
 import { Route } from 'react-router-dom'
 
-function App() {
+const App = ({ authUser}) => {
+
   return (
     <div className="App">
 
-      <NavBar />
+      {authUser && <NavBar />}
 
       <Route exact path="/" component={HomePage} />
       <Route path="/leaderboard" component={LeaderBoard} />
@@ -27,4 +30,9 @@ function App() {
   );
 }
 
-export default App
+const mapStateToProps = ({ authUser }) => ({
+  authUser
+})
+
+
+export default connect(mapStateToProps)(App)

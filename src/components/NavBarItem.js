@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 
 const NavBarItem = ({ text, path, last }) => {
 
-    let location = useLocation();
+    const location = useLocation();
     const fontWeight = location.pathname === path ? 'bold' : 'normal'
 
     return (
