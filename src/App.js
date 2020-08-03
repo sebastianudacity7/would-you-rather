@@ -11,20 +11,24 @@ import NewQuestion from './components/NewQuestion'
 import LoginPage from './components/LoginPage'
 import PollPage from './components/PollPage'
 import { Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
+import SecureRoute from './components/SecureRoute'
 
-const App = ({ authUser}) => {
+const App = ({ authUser }) => {
 
   return (
     <div className="App">
 
       {authUser && <NavBar />}
 
-      <Route exact path="/" component={HomePage} />
-      <Route path="/leaderboard" component={LeaderBoard} />
-      <Route path="/myquestions" component={MyQuestions} />
-      <Route path="/new" component={NewQuestion} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/poll/:id" component={PollPage} />
+      <Switch>
+        <SecureRoute exact path="/" component={HomePage} />
+        <SecureRoute path="/leaderboard" component={LeaderBoard} />
+        <SecureRoute path="/myquestions" component={MyQuestions} />
+        <SecureRoute path="/new" component={NewQuestion} />
+        <Route path="/login" component={LoginPage} />
+        <SecureRoute path="/poll/:id" component={PollPage} />
+      </Switch>
 
     </div>
   );

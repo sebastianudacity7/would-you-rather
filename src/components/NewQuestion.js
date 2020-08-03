@@ -1,5 +1,4 @@
 import React from 'react'
-import { withSecure } from '../lib/withSecure'
 
 class NewQuestion extends React.Component {
 
@@ -10,4 +9,4 @@ class NewQuestion extends React.Component {
 }
 
 
-export default withSecure(NewQuestion)
+export default NewQuestion
