@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 
 const SecureRoute = (props) => {
 
-    const { authUser,location } = props
+    const { authUser, location } = props
 
     return (
         authUser
@@ -15,11 +15,8 @@ const SecureRoute = (props) => {
                 state: { from: location }
             }} />
     )
-    
 }
 
-const mapStateToProps = ({ authUser }) => ({
+export default connect(({ authUser }) => ({
     authUser
-})
-
-export default connect(mapStateToProps)(SecureRoute)
+}))(SecureRoute)

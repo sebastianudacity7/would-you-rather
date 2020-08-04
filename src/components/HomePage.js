@@ -5,8 +5,6 @@ const HomePage = ({ authUser }) => {
     return (<div>HomePage</div>)
 }
 
-const mapStateToProps = ({ authUser }) => ({
+export default connect(({ authUser }) => ({
     authUser
-})
-
-export default connect(mapStateToProps)(HomePage)
+}))(HomePage)

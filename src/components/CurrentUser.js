@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {signOutUser} from '../actions/authUser'
+import { signOutUser } from '../actions/authUser'
 
-const CurrentUser = ({authUser, dispatch}) => {
+const CurrentUser = ({ authUser, dispatch }) => {
 
     const onSignOut = (e) => {
         e.preventDefault()
@@ -14,12 +14,10 @@ const CurrentUser = ({authUser, dispatch}) => {
             {authUser}
             <button onClick={onSignOut}>Sign out</button>
         </span>
-        
+
     )
 }
 
-const mapStateToProps = ({ authUser }) => ({
+export default connect(({ authUser }) => ({
     authUser
-})
-
-export default connect(mapStateToProps)(CurrentUser)
+}))(CurrentUser)

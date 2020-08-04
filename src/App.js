@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+
+
 import './App.css'
 
 import { connect } from 'react-redux'
@@ -14,7 +16,15 @@ import { Route } from 'react-router-dom'
 import { Switch } from 'react-router-dom'
 import SecureRoute from './components/SecureRoute'
 
-const App = ({ authUser }) => {
+import { addUsersAsync } from './actions/users'
+import { useEffectOnce } from './lib/useEffectOnce'
+
+
+const App = ({ authUser, dispatch }) => {
+
+  useEffectOnce(() => {
+    dispatch(addUsersAsync())
+  });
 
   return (
     <div className="App">
@@ -34,9 +44,6 @@ const App = ({ authUser }) => {
   );
 }
 
-const mapStateToProps = ({ authUser }) => ({
+export default connect(({ authUser }) => ({
   authUser
-})
-
-
-export default connect(mapStateToProps)(App)
+}))(App)
