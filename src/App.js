@@ -16,14 +16,16 @@ import { Route } from 'react-router-dom'
 import { Switch } from 'react-router-dom'
 import SecureRoute from './components/SecureRoute'
 
-import { addUsersAsync } from './actions/users'
+import { loadUsersAsync } from './actions/users'
+import { loadQuestionsAsync } from './actions/questions'
 import { useEffectOnce } from './lib/useEffectOnce'
 
 
 const App = ({ authUser, dispatch }) => {
 
   useEffectOnce(() => {
-    dispatch(addUsersAsync())
+    dispatch(loadUsersAsync())
+    dispatch(loadQuestionsAsync())
   });
 
   return (

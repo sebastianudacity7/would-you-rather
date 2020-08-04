@@ -8,7 +8,7 @@ const LoginPage = ({ dispatch, users }) => {
     const [selectedUser, setSelectedUser] = useState("");
 
     useEffect(() => {
-        setSelectedUser(users[0]?.name)
+        setSelectedUser(users[0]?.id)
     }, [users]);
 
     const onUserSelected = (e) => {
@@ -27,14 +27,14 @@ const LoginPage = ({ dispatch, users }) => {
         history.replace(redirectTo)
     }
 
-    const isLoginDisabled = () => selectedUser === ""
+    const isLoginDisabled = () => !selectedUser
 
     return (
         <div>
             <form>
                 <div>
                     <select onChange={onUserSelected} value={selectedUser}  >
-                        {users.map(({id,name}) => <option key={id} value={name} >{name}</option>)}
+                        {users.map(({id,name}) => <option key={id} value={id} >{name}</option>)}
                     </select>
                 </div>
                 <button onClick={onLogIn} disabled={isLoginDisabled()}>Login</button>

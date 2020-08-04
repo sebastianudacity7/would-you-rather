@@ -7,7 +7,7 @@ export const addUsers = (users) => ({
     users
 })
 
-export const addUsersAsync = () => (dispatch) => {
+export const loadUsersAsync = () => (dispatch) => {
 
     return getUsers()
         .then((users) => {dispatch(addUsers(users))})
