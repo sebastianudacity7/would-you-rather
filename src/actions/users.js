@@ -1,14 +1,14 @@
 import {getUsers} from '../api'
 
-export const ADD_USERS = 'ADD_USERS'
+export const SET_USERS = 'SET_USERS'
 
-export const addUsers = (users) => ({
-    type:ADD_USERS,
+export const setUsers = (users) => ({
+    type:SET_USERS,
     users
 })
 
 export const loadUsersAsync = () => (dispatch) => {
 
     return getUsers()
-        .then((users) => {dispatch(addUsers(users))})
+        .then((users) => {dispatch(setUsers(users))})
 }

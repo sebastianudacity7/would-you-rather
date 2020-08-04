@@ -1,12 +1,71 @@
 import React from 'react'
+import { useState } from 'react'
+import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
-class NewQuestion extends React.Component {
+import NewQuestionOption from './NewQuestionOption'
+import { addNewQuestionAsync } from '../actions/questions'
 
-    render = () => {
-        return (<div>NewQuestion</div>)
+const NewQuestion = ({ dispatch, authUser }) => {
+
+    const [optionOne, setOptionOne] = useState("")
+    const [optionTwo, setOptionTwo] = useState("")
+    const [isBusy, setIsBusy] = useState(false)
+
+    const onOptionChanged = (e, setOption) => {
+        e.preventDefault()
+        setOption(e.target.value)
     }
 
+    const history = useHistory();
+
+    const onSubmitNewQuestion = (e) => {
+        e.preventDefault()
+
+        setIsBusy(true)
+
+        dispatch(addNewQuestionAsync({
+            optionOneText: optionOne,
+            optionTwoText: optionTwo,
+            author: authUser
+        }))
+            .finally(() => {
+                setIsBusy(false)
+            })
+            .then(() => {
+                history.replace("/myquestions")
+            })
+
+
+    }
+
+    const isSubmitDisabled = () => !optionOne || !optionTwo || isBusy
+
+    return (
+        <div>
+            <form>
+                <h3>Would you rather:</h3>
+                <div>
+                    <NewQuestionOption
+                        isRadOnly={isBusy}
+                        option="A"
+                        value={optionOne}
+                        onChange={e => onOptionChanged(e, setOptionOne)} />
+                </div>
+                <div>
+                    <NewQuestionOption
+                        isRadOnly={isBusy}
+                        option="B"
+                        value={optionTwo}
+                        onChange={e => onOptionChanged(e, setOptionTwo)} />
+                </div>
+                <button disabled={isSubmitDisabled()} onClick={onSubmitNewQuestion}>Submit</button>
+            </form>
+        </div>
+    )
 }
 
 
-export default NewQuestion
+export default connect(({ authUser }) => ({
+    authUser
+}))(NewQuestion)
