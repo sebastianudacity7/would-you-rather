@@ -1,7 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const PollPage = () => {
-    return (<div>PollPage</div>)
+import Question from './Question'
+
+const PollPage = ({question}) => {
+
+    if(!question) {
+        return (<div>Poll doesn't exist</div>)
+    }
+
+    return (
+        <div>
+            <h3>Poll Results</h3>
+        <Question id={question.id}/>
+        </div>
+    )
 }
 
-export default PollPage
+export default connect(({questions},props) => ({
+
+    question:questions[props.match.params.id]
+}))(PollPage)
