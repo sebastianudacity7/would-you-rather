@@ -1,8 +1,8 @@
 import React from 'react'
 
-const QuestionOption = ({text, option}) => {
+const QuestionOption = ({ text, option }) => {
 
-    return  (
+    return (
         <div><span style={{ fontWeight: 'bold' }}>{option}:</span>{text}</div>
     )
 }

@@ -8,11 +8,11 @@ export const users = (state = {}, action) => {
         case SET_USERS:
             return action.users
         case ADD_NEW_QUESTION:
-            return map(state,([id,u]) => {
-                const user = action.question.author === id 
+            return map(state,(u) => (
+                action.question.author === u.id 
                             ? {...u,questions:[...u.questions,action.question.id]}
                             : u
-                return [id,user]})
+            ))
         default:
             return state
 

@@ -12,7 +12,7 @@ const PollPage = ({question}) => {
     return (
         <div>
             <h3>Poll Results</h3>
-        <Question id={question.id}/>
+            <Question id={question.id}/>
         </div>
     )
 }

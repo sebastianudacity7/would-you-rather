@@ -15,7 +15,7 @@ const UserBadge = ({ name, score, questionLength, answerLength, avatarURL }) => 
             </img>
             <h3>{name}</h3>
         </div>
-    
+
         <div>Questions: {questionLength}</div>
         <div>Answers: {answerLength}</div>
         <div>Score: {score} </div>
