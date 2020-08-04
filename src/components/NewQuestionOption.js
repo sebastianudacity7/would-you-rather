@@ -7,7 +7,7 @@ const NewQuestionOption = ({ option, value, onChange, readOnly }) => {
             <span style={{ fontWeight: 'bold' }}>{option}:</span>
             <input type="text" placeholder={`Option ${option}`} value={value} onChange={onChange} readOnly={readOnly}></input>
         </div>
-    )    
+    )
 }
 
 export default NewQuestionOption

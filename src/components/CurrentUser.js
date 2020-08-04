@@ -9,13 +9,13 @@ const CurrentUser = ({ user, dispatch }) => {
         dispatch(signOutUser())
     }
 
-    if(!user) {
+    if (!user) {
         return (<div></div>)
     }
 
     return (
         <span>
-                       
+
             <img
                 src={user.avatarURL}
                 className="avatar"
@@ -29,6 +29,6 @@ const CurrentUser = ({ user, dispatch }) => {
     )
 }
 
-export default connect(({users, authUser }) => ({
-    user:users[authUser]
+export default connect(({ users, authUser }) => ({
+    user: users[authUser]
 }))(CurrentUser)

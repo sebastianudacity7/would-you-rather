@@ -34,7 +34,7 @@ const LoginPage = ({ dispatch, users }) => {
             <form>
                 <div>
                     <select onChange={onUserSelected} value={selectedUser}  >
-                        {users.map(({id,name}) => <option key={id} value={id} >{name}</option>)}
+                        {users.map(({ id, name }) => <option key={id} value={id} >{name}</option>)}
                     </select>
                 </div>
                 <button onClick={onLogIn} disabled={isLoginDisabled()}>Login</button>

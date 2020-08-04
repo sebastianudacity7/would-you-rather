@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import QuestionList from './QuestionList'
 
-const MyQuestions = ({questions}) => {
+const MyQuestions = ({ questions }) => {
     return (
         <div>
             <QuestionList title="My Questions" questions={questions} />
@@ -11,8 +11,8 @@ const MyQuestions = ({questions}) => {
 }
 
 
-export default connect(({questions, authUser}) => {
-    return { 
-        questions : Object.values(questions).filter(q => q.author === authUser)
+export default connect(({ questions, authUser }) => {
+    return {
+        questions: Object.values(questions).filter(q => q.author === authUser)
     }
 })(MyQuestions)

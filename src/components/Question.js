@@ -3,32 +3,44 @@ import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import QuestionOption from './QuestionOption'
+import QuestionVotingPanel from './QuestionVotingPanel'
 
-const Question = ({ question }) => {
+import {isQuestionAnswered} from '../api/questions'
 
-    const { id, optionOne, optionTwo } = question
+const Question = ({ question , isAnswered}) => {
 
     const history = useHistory();
 
+    const { id, optionOne, optionTwo } = question
+
     const onShowDetails = (e) => {
         e.preventDefault()
-        history.push(`/poll/${id}`)
+        isAnswered && history.push(`/poll/${id}`)
     }
 
+    const className = isAnswered ? "answeredQuestion" : "unansweredQuestion"
+
     return (
-        <div onClick={onShowDetails} className="question">
+        <div onClick={onShowDetails} className={className}>
 
             <h3>Would you rather:</h3>
+
             <QuestionOption option="A" text={optionOne.text} />
             <QuestionOption option="B" text={optionTwo.text} />
+
+            {!isAnswered && <QuestionVotingPanel id={id}/>}
 
         </div>
     )
 }
 
 
-export default connect(({ questions }, { id }) => {
+export default connect(({authUser, questions }, { id }) => {
+
+    const question = questions[id]
+
     return {
-        question: questions[id]
+        question: question,
+        isAnswered:isQuestionAnswered(question,authUser)
     }
 })(Question)
