@@ -1,4 +1,4 @@
-import {getUsers} from '../api'
+import {getUsers} from '../api/api'
 
 export const SET_USERS = 'SET_USERS'
 

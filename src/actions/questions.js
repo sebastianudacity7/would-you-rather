@@ -1,4 +1,4 @@
-import * as QuestionAPI from '../api'
+import * as QuestionAPI from '../api/api'
 
 export const SET_QUESTIONS = 'SET_QUESTIONS'
 export const ADD_NEW_QUESTION = 'ADD_NEW_QUESTION'

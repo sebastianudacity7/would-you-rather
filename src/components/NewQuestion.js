@@ -35,8 +35,6 @@ const NewQuestion = ({ dispatch, authUser }) => {
             .then(() => {
                 history.replace("/myquestions")
             })
-
-
     }
 
     const isSubmitDisabled = () => !optionOne || !optionTwo || isBusy

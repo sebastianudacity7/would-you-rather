@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const HomePage = ({ authUser }) => {
+const HomePage = () => {
     return (<div>HomePage</div>)
 }
 
