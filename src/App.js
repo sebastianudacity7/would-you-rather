@@ -12,6 +12,9 @@ import MyQuestions from './components/MyQuestions'
 import NewQuestion from './components/NewQuestion'
 import LoginPage from './components/LoginPage'
 import PollPage from './components/PollPage'
+import NotFound from './components/NotFound'
+
+
 import { Route } from 'react-router-dom'
 import { Switch } from 'react-router-dom'
 import SecureRoute from './components/SecureRoute'
@@ -37,9 +40,10 @@ const App = ({ authUser, dispatch }) => {
         <SecureRoute exact path="/" component={HomePage} />
         <SecureRoute path="/leaderboard" component={LeaderBoard} />
         <SecureRoute path="/myquestions" component={MyQuestions} />
-        <SecureRoute path="/new" component={NewQuestion} />
+        <SecureRoute path="/add" component={NewQuestion} />
         <Route path="/login" component={LoginPage} />
         <SecureRoute path="/questions/:id" component={PollPage} />
+        <SecureRoute path="*" component={NotFound} ></SecureRoute>
       </Switch>
 
     </div>

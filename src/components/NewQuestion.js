@@ -33,7 +33,7 @@ const NewQuestion = ({ dispatch, authUser }) => {
                 setIsBusy(false)
             })
             .then(() => {
-                history.replace("/myquestions")
+                history.replace("/")
             })
     }
 
@@ -42,7 +42,7 @@ const NewQuestion = ({ dispatch, authUser }) => {
     return (
         <div>
             <form>
-                <h3>Would you rather:</h3>
+                <h3>Would You Rather?</h3>
                 <div>
                     <NewQuestionOption
                         isRadOnly={isBusy}

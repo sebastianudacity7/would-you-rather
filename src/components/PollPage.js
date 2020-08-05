@@ -7,7 +7,7 @@ import UserAvatar from './UserAvatar'
 const PollPage = ({id,auhtorId}) => {
 
     if(!id) {
-        return (<div>Poll doesn't exist</div>)
+        return (<div>404: Poll doesn't exist</div>)
     }
 
     return (
@@ -15,7 +15,7 @@ const PollPage = ({id,auhtorId}) => {
             <h3>Poll Results</h3>
 
             <UserAvatar userId={auhtorId}/>
-            <Question id={id}/>
+            <Question id={id} showResults={true}/>
         </div>
     )
 }

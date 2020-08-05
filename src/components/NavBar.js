@@ -10,7 +10,7 @@ const NavBar = () => {
         <NavBarItem text="Home" path="/" />
         <NavBarItem text="Leaderboard" path="/leaderboard" />
         <NavBarItem text="My Questions" path="/myquestions" />
-        <NavBarItem text="New Question" path="/new" last={true} />
+        <NavBarItem text="New Question" path="/add" last={true} />
         <CurrentUser/>
 
     </div>)

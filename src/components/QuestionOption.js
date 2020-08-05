@@ -1,13 +1,23 @@
 import React from 'react'
 
-const QuestionOption = ({ text, option, selected }) => {
+const QuestionOption = ({ label, option, showResults }) => {
+
+    const {text, selected, voteCount, votePercent} = option
 
     return (
         <div>
-            <span style={{ fontWeight: 'bold' }}>{option}:</span>
+            <span style={{ fontWeight: 'bold' }}>{label}:</span>
             <span>{text}</span>
             {selected && <span style={{ fontWeight: 'bold' }}> V</span>}
-        </div>
+
+            {showResults && (
+                <div>
+                    <span>Votes: {voteCount}</span>
+                    <span>|</span>
+                    <span>Percent: {votePercent}%</span>
+                </div>
+            )}
+       </div>
     )
 }
 

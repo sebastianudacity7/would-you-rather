@@ -5,15 +5,16 @@ import { useHistory } from 'react-router-dom'
 import QuestionOption from './QuestionOption'
 import QuestionVotingPanel from './QuestionVotingPanel'
 
+import {mapOptions} from '../api/questions'
 
 
-const Question = ({ question, isOneSelected, isTowSelected}) => {
+const Question = ({ id, options, showResults}) => {
 
     const history = useHistory();
 
-    const { id, optionOne, optionTwo } = question
-
-    const isAnswered = isOneSelected || isTowSelected
+    const {optionOne, optionTwo, isAnswered} = options
+    showResults =  showResults && isAnswered
+    
 
     const onShowDetails = (e) => {
         e.preventDefault()
@@ -23,12 +24,10 @@ const Question = ({ question, isOneSelected, isTowSelected}) => {
     return (
         <div onClick={onShowDetails} className="question">
 
-
-
             <h3>Would You Rather?</h3>
 
-            <QuestionOption option="A" text={optionOne.text} selected={isOneSelected} />
-            <QuestionOption option="B" text={optionTwo.text} selected={isTowSelected} />
+            <QuestionOption label="A" option={optionOne}  showResults={showResults} />
+            <QuestionOption label="B" option={optionTwo} showResults={showResults} />
 
             {!isAnswered && <QuestionVotingPanel id={id} />}
 
@@ -37,16 +36,12 @@ const Question = ({ question, isOneSelected, isTowSelected}) => {
 }
 
 
-export default connect(({ authUser, questions, users }, { id }) => {
+export default connect(({ authUser, questions}, { id}) => {
 
     const q = questions[id]
 
-    const isOneSelected = q.optionOne.votes.includes(authUser)
-    const isTowSelected = q.optionTwo.votes.includes(authUser)
-
     return {
-        question: q,
-        isOneSelected,
-        isTowSelected
+        id: id,
+        options:mapOptions(q,authUser)
     }
 })(Question)
