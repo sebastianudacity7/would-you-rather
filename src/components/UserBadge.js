@@ -3,16 +3,13 @@ import { connect } from 'react-redux'
 
 import { getScore } from '../api/user'
 
-const UserBadge = ({ name, score, questionLength, answerLength, avatarURL }) => {
+import UserAvatar from './UserAvatar'
+
+const UserBadge = ({ name, score, questionLength, answerLength, userId }) => {
 
     return <div>
         <div>
-            <img
-                src={avatarURL}
-                className="avatar"
-                alt={`Avatar of ${name}`}
-            >
-            </img>
+            <UserAvatar userId={userId}/>
             <h3>{name}</h3>
         </div>
 
@@ -28,7 +25,7 @@ export default connect(({ users }, { id }) => {
         name: user.name,
         questionLength: user.questions.length,
         answerLength: Object.keys(user.answers).length,
-        avatarURL: user.avatarURL,
+        userId: user.id,
         score: getScore(user)
     }
 })(UserBadge)

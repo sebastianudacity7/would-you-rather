@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { signOutUser } from '../actions/authUser'
 
+import UserAvatar from './UserAvatar'
+
 const CurrentUser = ({ user, dispatch }) => {
 
     const onSignOut = (e) => {
@@ -15,13 +17,7 @@ const CurrentUser = ({ user, dispatch }) => {
 
     return (
         <span>
-
-            <img
-                src={user.avatarURL}
-                className="avatar"
-                alt={`Avatar of ${user.name}`}
-            >
-            </img>
+            <UserAvatar userId={user.id} />
             {user.name}
             <button onClick={onSignOut}>Sign out</button>
         </span>

@@ -4,9 +4,10 @@ import { useHistory } from 'react-router-dom'
 
 import QuestionOption from './QuestionOption'
 import QuestionVotingPanel from './QuestionVotingPanel'
+import UserAvatar from './UserAvatar'
 
 
-const Question = ({ question, isOneSelected, isTowSelected }) => {
+const Question = ({ question, isOneSelected, isTowSelected ,authorId}) => {
 
     const history = useHistory();
 
@@ -16,7 +17,7 @@ const Question = ({ question, isOneSelected, isTowSelected }) => {
 
     const onShowDetails = (e) => {
         e.preventDefault()
-        isAnswered && history.push(`/poll/${id}`)
+        isAnswered && history.push(`/questions/${id}`)
     }
 
     const className = isAnswered ? "answeredQuestion" : "unansweredQuestion"
@@ -24,7 +25,9 @@ const Question = ({ question, isOneSelected, isTowSelected }) => {
     return (
         <div onClick={onShowDetails} className={className}>
 
-            <h3>Would you rather:</h3>
+            <UserAvatar userId={authorId}/>
+
+            <h3>Would You Rather?</h3>
 
             <QuestionOption option="A" text={optionOne.text} selected={isOneSelected} />
             <QuestionOption option="B" text={optionTwo.text} selected={isTowSelected} />
@@ -36,15 +39,18 @@ const Question = ({ question, isOneSelected, isTowSelected }) => {
 }
 
 
-export default connect(({ authUser, questions }, { id }) => {
+export default connect(({ authUser, questions, users }, { id }) => {
 
     const q = questions[id]
+
     const isOneSelected = q.optionOne.votes.includes(authUser)
     const isTowSelected = q.optionTwo.votes.includes(authUser)
+    const authorId = users[q.author].id
 
     return {
         question: q,
         isOneSelected,
-        isTowSelected
+        isTowSelected,
+        authorId
     }
 })(Question)

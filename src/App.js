@@ -39,7 +39,7 @@ const App = ({ authUser, dispatch }) => {
         <SecureRoute path="/myquestions" component={MyQuestions} />
         <SecureRoute path="/new" component={NewQuestion} />
         <Route path="/login" component={LoginPage} />
-        <SecureRoute path="/poll/:id" component={PollPage} />
+        <SecureRoute path="/questions/:id" component={PollPage} />
       </Switch>
 
     </div>
