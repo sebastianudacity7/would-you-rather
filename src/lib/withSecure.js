@@ -20,11 +20,10 @@ export const withSecure = (Component) => {
         )
     }
 
-    const mapStateToProps = ({ authUser }) => ({
-        authUser
-    })
 
-    return connect(mapStateToProps)(Secure);
+    return connect(({ authUser }) => ({
+        authUser
+    }))(Secure);
 }
 
 

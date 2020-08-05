@@ -5,26 +5,28 @@ import { getScore } from '../api/user'
 
 import UserAvatar from './UserAvatar'
 
-const UserBadge = ({ name, score, questionLength, answerLength, userId }) => {
+const UserBadge = ({ name, score, questionCount, answerCount, userId }) => {
 
-    return <div>
+    return (
         <div>
-            <UserAvatar userId={userId}/>
-            <h3>{name}</h3>
-        </div>
+            <div>
+                <UserAvatar userId={userId} />
+                <h3>{name}</h3>
+            </div>
 
-        <div>Questions: {questionLength}</div>
-        <div>Answers: {answerLength}</div>
-        <div>Score: {score} </div>
-    </div>
+            <div>Questions: {questionCount}</div>
+            <div>Answers: {answerCount}</div>
+            <div>Score: {score} </div>
+        </div>
+    )
 }
 
 export default connect(({ users }, { id }) => {
     const user = users[id]
     return {
         name: user.name,
-        questionLength: user.questions.length,
-        answerLength: Object.keys(user.answers).length,
+        questionCount: user.questions.length,
+        answerCount: Object.keys(user.answers).length,
         userId: user.id,
         score: getScore(user)
     }

@@ -5,7 +5,7 @@ import { setAuthUser } from '../actions/authUser'
 
 const LoginPage = ({ dispatch, users }) => {
 
-    const [selectedUser, setSelectedUser] = useState("");
+    const [selectedUser, setSelectedUser] = useState("")
 
     useEffect(() => {
         setSelectedUser(users[0]?.id)
@@ -16,8 +16,8 @@ const LoginPage = ({ dispatch, users }) => {
         setSelectedUser(e.target.value)
     }
 
-    const history = useHistory();
-    const location = useLocation();
+    const history = useHistory()
+    const location = useLocation()
 
     const onLogIn = (e) => {
         e.preventDefault()

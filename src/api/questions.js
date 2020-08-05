@@ -1,6 +1,3 @@
-export const sortQuestions = (question) =>
-    (question.sort((a, b) => (b.timestamp - a.timestamp)))
-
 export const isQuestionAnswered = (q, user) =>
     (q.optionOne.votes.includes(user) || q.optionTwo.votes.includes(user))
 
@@ -14,7 +11,7 @@ export const mapOptions = (question, authUser) => {
             text: option.text,
             selected: option.votes.includes(authUser),
             voteCount: option.votes.length,
-            votePercent: Math.round(100*option.votes.length/totalVotes)
+            votePercent: Math.round(100 * option.votes.length / totalVotes)
         }
     }
 
@@ -24,6 +21,6 @@ export const mapOptions = (question, authUser) => {
     return {
         optionOne,
         optionTwo,
-        isAnswered : optionOne.selected || optionTwo.selected
+        isAnswered: optionOne.selected || optionTwo.selected
     }
 }

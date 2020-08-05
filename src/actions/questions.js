@@ -5,8 +5,8 @@ export const ADD_NEW_QUESTION = 'ADD_NEW_QUESTION'
 export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER'
 
 export const setQuestions = (questions) => ({
-    type:SET_QUESTIONS,
-    questions 
+    type: SET_QUESTIONS,
+    questions
 })
 
 export const loadQuestionsAsync = () => (dispatch) => {
@@ -17,8 +17,8 @@ export const loadQuestionsAsync = () => (dispatch) => {
 }
 
 export const addNewQuestion = (question) => ({
-    type:ADD_NEW_QUESTION,
-    question 
+    type: ADD_NEW_QUESTION,
+    question
 })
 
 export const addNewQuestionAsync = (question) => (dispatch) => {
@@ -29,16 +29,13 @@ export const addNewQuestionAsync = (question) => (dispatch) => {
 }
 
 export const addQuestionAnswer = (user, id, answer) => ({
-    type:ADD_QUESTION_ANSWER,
+    type: ADD_QUESTION_ANSWER,
     id,
     user,
-    answer 
+    answer
 })
 
 export const addQuestionVoteAsync = (user, qid, answer) => (dispatch) => {
-    dispatch(addQuestionAnswer(user,qid,answer))
+    dispatch(addQuestionAnswer(user, qid, answer))
     return QuestionAPI.saveQuestionAnswer(user, qid, answer)
-        .then(q => {
-            //dispatch(addNewQuestion(q))
-        })
 }

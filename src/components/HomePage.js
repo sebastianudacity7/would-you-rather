@@ -25,7 +25,8 @@ const HomePage = ({ unansweredQuestions, answeredQuestions }) => {
                     title="Unanswered Questions"
                     emptyMessage="There are no more questions to answer" />
             }
-        </div>)
+        </div>
+    )
 }
 
 export default connect(({ questions, authUser }) => {
@@ -44,7 +45,6 @@ export default connect(({ questions, authUser }) => {
 
     return {
         unansweredQuestions,
-        answeredQuestions,
-        authUser
+        answeredQuestions
     }
 })(HomePage)

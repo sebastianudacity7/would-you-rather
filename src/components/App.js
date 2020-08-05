@@ -1,28 +1,25 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
-
-import './App.css'
+import '../App.css'
 
 import { connect } from 'react-redux'
 
-import NavBar from './components/NavBar'
-import HomePage from './components/HomePage'
-import LeaderBoard from './components/LeaderBoard'
-import MyQuestions from './components/MyQuestions'
-import NewQuestion from './components/NewQuestion'
-import LoginPage from './components/LoginPage'
-import PollPage from './components/PollPage'
-import NotFound from './components/NotFound'
+import NavBar from './NavBar'
+import HomePage from './HomePage'
+import LeaderBoard from './LeaderBoard'
+import MyQuestions from './MyQuestions'
+import NewQuestion from './NewQuestion'
+import LoginPage from './LoginPage'
+import PollPage from './PollPage'
+import NotFound from './NotFound'
+import SecureRoute from './SecureRoute'
 
+import { loadUsersAsync } from '../actions/users'
+import { loadQuestionsAsync } from '../actions/questions'
 
-import { Route } from 'react-router-dom'
-import { Switch } from 'react-router-dom'
-import SecureRoute from './components/SecureRoute'
-
-import { loadUsersAsync } from './actions/users'
-import { loadQuestionsAsync } from './actions/questions'
-import { useEffectOnce } from './lib/useEffectOnce'
-
+import { useEffectOnce } from '../lib/useEffectOnce'
 
 const App = ({ authUser, dispatch }) => {
 
@@ -47,7 +44,7 @@ const App = ({ authUser, dispatch }) => {
       </Switch>
 
     </div>
-  );
+  )
 }
 
 export default connect(({ authUser }) => ({

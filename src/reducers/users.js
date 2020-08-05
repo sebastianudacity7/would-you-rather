@@ -14,8 +14,8 @@ export const users = (state = {}, action) => {
             )
         case ADD_QUESTION_ANSWER:
             return map(state,
-                u=> action.user === u.id, 
-                u => ({answers:{...u.answers,[action.id]:action.answer}}))
+                u => action.user === u.id,
+                u => ({ answers: { ...u.answers, [action.id]: action.answer } }))
         default:
             return state
 

@@ -17,7 +17,7 @@ const NewQuestion = ({ dispatch, authUser }) => {
         setOption(e.target.value)
     }
 
-    const history = useHistory();
+    const history = useHistory()
 
     const onSubmitNewQuestion = (e) => {
         e.preventDefault()
@@ -46,14 +46,14 @@ const NewQuestion = ({ dispatch, authUser }) => {
                 <div>
                     <NewQuestionOption
                         isRadOnly={isBusy}
-                        option="A"
+                        label="A"
                         value={optionOne}
                         onChange={e => onOptionChanged(e, setOptionOne)} />
                 </div>
                 <div>
                     <NewQuestionOption
                         isRadOnly={isBusy}
-                        option="B"
+                        label="B"
                         value={optionTwo}
                         onChange={e => onOptionChanged(e, setOptionTwo)} />
                 </div>

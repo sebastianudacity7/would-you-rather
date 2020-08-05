@@ -2,7 +2,7 @@ import React from 'react'
 
 import QuestionFilterItem from './QuestionFilterItem'
 
-const QuestionFilter = ({isAnsweredSelected}) => {
+const QuestionFilter = ({ isAnsweredSelected }) => {
 
     return (
         <div>

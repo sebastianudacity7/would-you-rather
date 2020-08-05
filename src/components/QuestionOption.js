@@ -2,7 +2,7 @@ import React from 'react'
 
 const QuestionOption = ({ label, option, showResults }) => {
 
-    const {text, selected, voteCount, votePercent} = option
+    const { text, selected, voteCount, votePercent } = option
 
     return (
         <div>
@@ -17,7 +17,7 @@ const QuestionOption = ({ label, option, showResults }) => {
                     <span>Percent: {votePercent}%</span>
                 </div>
             )}
-       </div>
+        </div>
     )
 }
 

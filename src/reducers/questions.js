@@ -13,9 +13,10 @@ export const questions = (state = {}, action) => {
         case ADD_NEW_QUESTION:
             return { ...state, [action.question.id]: action.question }
         case ADD_QUESTION_ANSWER:
-            return map(state,q => q.id === action.id, q => {
+            return map(state, q => q.id === action.id, q => {
                 const answer = q[action.answer]
-                return { [action.answer] : {...answer,votes: [...answer.votes,action.user]} }})
+                return { [action.answer]: { ...answer, votes: [...answer.votes, action.user] } }
+            })
         default:
             return state
 
