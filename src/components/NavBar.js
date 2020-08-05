@@ -7,7 +7,7 @@ import CurrentUser from './CurrentUser'
 const NavBar = () => {
 
     return (<div>
-        <NavBarItem text="Home" path="/"  />
+        <NavBarItem text="Home" path="/" />
         <NavBarItem text="Leader Board" path="/leaderboard" />
         <NavBarItem text="My Questions" path="/myquestions" />
         <NavBarItem text="New Question" path="/new" last={true} />

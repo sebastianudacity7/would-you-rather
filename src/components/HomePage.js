@@ -1,41 +1,50 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { useLocation } from 'react-router-dom'
+
 import QuestionList from './QuestionList'
+import QuestionFilter from './QuestionFilter'
 
-import {isQuestionAnswered} from '../api/questions'
+import { isQuestionAnswered } from '../api/questions'
 
-const HomePage = ({ unasweredQuestions, asweredQuestions }) => {
+const HomePage = ({ unansweredQuestions, answeredQuestions }) => {
 
+    const location = useLocation()
+    const isAnsweredSelected = new URLSearchParams(location.search).get("filter") === "answered";
 
     return (
         <div>
-            <div>
-                <QuestionList questions={unasweredQuestions} title="Unaswered Questions" />
-            </div>
-            <div>
-                <QuestionList questions={asweredQuestions} title="Answered Questions" />
-            </div>
+            <QuestionFilter isAnsweredSelected={isAnsweredSelected} />
+            {isAnsweredSelected
+                ? <QuestionList
+                    questions={answeredQuestions}
+                    title="Answered Questions" />
+                : <QuestionList
+                    questions={unansweredQuestions}
+                    title="Unanswered Questions"
+                    emptyMessage="There are no more questions to answer" />
+            }
         </div>)
 }
 
 export default connect(({ questions, authUser }) => {
 
-    const unasweredQuestions = []
-    const asweredQuestions = []
+    const unansweredQuestions = []
+    const answeredQuestions = []
 
     Object.values(questions).forEach(q => {
-        if (isQuestionAnswered(q,authUser)) {
-            asweredQuestions.push(q)
+        if (isQuestionAnswered(q, authUser)) {
+            answeredQuestions.push(q)
         }
         else {
-            unasweredQuestions.push(q)
+            unansweredQuestions.push(q)
         }
     })
 
     return {
-        unasweredQuestions,
-        asweredQuestions,
+        unansweredQuestions,
+        answeredQuestions,
         authUser
     }
 })(HomePage)
