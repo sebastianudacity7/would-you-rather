@@ -6,6 +6,8 @@ import { useHistory } from 'react-router-dom'
 import NewQuestionOption from './NewQuestionOption'
 import { addNewQuestionAsync } from '../actions/questions'
 
+import { Button} from "@blueprintjs/core"
+
 const NewQuestion = ({ dispatch, authUser }) => {
 
     const [optionOne, setOptionOne] = useState("")
@@ -42,7 +44,7 @@ const NewQuestion = ({ dispatch, authUser }) => {
     return (
         <div>
             <form>
-                <h3>Would You Rather?</h3>
+                <h3>Would You Rather...</h3>
                 <div>
                     <NewQuestionOption
                         isRadOnly={isBusy}
@@ -57,7 +59,7 @@ const NewQuestion = ({ dispatch, authUser }) => {
                         value={optionTwo}
                         onChange={e => onOptionChanged(e, setOptionTwo)} />
                 </div>
-                <button disabled={isSubmitDisabled()} onClick={onSubmitNewQuestion}>Submit</button>
+                <Button loading={isBusy} disabled={isSubmitDisabled()} onClick={onSubmitNewQuestion}>Submit</Button>
             </form>
         </div>
     )

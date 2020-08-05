@@ -3,6 +3,8 @@ import { useLocation, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthUser } from '../actions/authUser'
 
+import { Button} from "@blueprintjs/core"
+
 const LoginPage = ({ dispatch, users }) => {
 
     const [selectedUser, setSelectedUser] = useState("")
@@ -37,7 +39,7 @@ const LoginPage = ({ dispatch, users }) => {
                         {users.map(({ id, name }) => <option key={id} value={id} >{name}</option>)}
                     </select>
                 </div>
-                <button onClick={onLogIn} disabled={isLoginDisabled()}>Login</button>
+                <Button  intent="primary" onClick={onLogIn} disabled={isLoginDisabled()}>Login</Button>
             </form>
         </div>
     )

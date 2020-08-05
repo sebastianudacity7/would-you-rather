@@ -10,8 +10,9 @@ const UserBadge = ({ name, score, questionCount, answerCount, userId }) => {
     return (
         <div>
             <div>
-                <UserAvatar userId={userId} />
                 <h3>{name}</h3>
+                <UserAvatar userId={userId} />
+
             </div>
 
             <div>Questions: {questionCount}</div>

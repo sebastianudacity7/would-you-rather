@@ -19,10 +19,11 @@ const HomePage = ({ unansweredQuestions, answeredQuestions }) => {
             {isAnsweredSelected
                 ? <QuestionList
                     questions={answeredQuestions}
-                    title="Answered Questions" />
+                    title="Your Answers"
+                />
                 : <QuestionList
                     questions={unansweredQuestions}
-                    title="Unanswered Questions"
+                    title="Answer Questions"
                     emptyMessage="There are no more questions to answer" />
             }
         </div>

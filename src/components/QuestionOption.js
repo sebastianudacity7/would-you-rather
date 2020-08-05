@@ -7,7 +7,7 @@ const QuestionOption = ({ label, option, showResults }) => {
     return (
         <div>
             <span style={{ fontWeight: 'bold' }}>{label}:</span>
-            <span>{text}</span>
+            <span>{text}?</span>
             {selected && <span style={{ fontWeight: 'bold' }}> V</span>}
 
             {showResults && (

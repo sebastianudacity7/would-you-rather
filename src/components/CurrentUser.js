@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { signOutUser } from '../actions/authUser'
 
 import UserAvatar from './UserAvatar'
+import { Button} from "@blueprintjs/core"
+
 
 const CurrentUser = ({ userId, userName, dispatch }) => {
 
@@ -18,9 +20,9 @@ const CurrentUser = ({ userId, userName, dispatch }) => {
 
     return (
         <span>
+            <span>{userName}</span>
             <UserAvatar userId={userId} />
-            {userName}
-            <button onClick={onSignOut}>Sign out</button>
+            <Button minimal={true} onClick={onSignOut}>Sign out</Button>
         </span>
     )
 }
