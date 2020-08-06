@@ -33,7 +33,8 @@ const LoginPage = ({ dispatch, users }) => {
 
     return (
         <div className="loginBox">
-            <h3>Welcome to Would You Rather Game</h3>
+            <h3>Welcome to the Would You Rather Game!</h3>
+            <div>Please sign in to continue</div>
             
             <form>
                 <div>
@@ -41,7 +42,7 @@ const LoginPage = ({ dispatch, users }) => {
                         {users.map(({ id, name }) => <option key={id} value={id} >{name}</option>)}
                     </select>
                 </div>
-                <Button  intent="primary" onClick={onLogIn} disabled={isLoginDisabled()} className="loginBtn">Login</Button>
+                <Button  intent="primary" onClick={onLogIn} disabled={isLoginDisabled()} className="loginBtn">Sign In</Button>
             </form>
         </div>
     )
