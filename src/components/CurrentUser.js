@@ -19,7 +19,7 @@ const CurrentUser = ({ userId, userName, dispatch }) => {
     }
 
     return (
-        <span>
+        <span className="curentUser">
             <span>{userName}</span>
             <UserAvatar userId={userId} />
             <Button minimal={true} onClick={onSignOut}>Sign out</Button>

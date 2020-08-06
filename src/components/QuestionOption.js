@@ -1,20 +1,24 @@
 import React from 'react'
+import { Icon } from "@blueprintjs/core";
 
-const QuestionOption = ({ label, option, showResults }) => {
+const QuestionOption = ({ option, showResults }) => {
 
-    const { text, selected, voteCount, votePercent } = option
+    const { text, selected, voteCount, votePercent, totalVoteCount } = option
+
+    const optClass = selected ? "votedOption" : "answeredOption"
 
     return (
         <div>
-            <span style={{ fontWeight: 'bold' }}>{label}:</span>
-            <span>{text}?</span>
-            {selected && <span style={{ fontWeight: 'bold' }}> V</span>}
+            <div className={optClass}>
+                <span>{text}</span>
+                {selected && <Icon icon="saved" className="votedIcon" />}
+            </div>
+
 
             {showResults && (
                 <div>
-                    <span>Votes: {voteCount}</span>
-                    <span>|</span>
-                    <span>Percent: {votePercent}%</span>
+                    <span>{voteCount} out of {totalVoteCount} votes  ({votePercent}%)</span>
+
                 </div>
             )}
         </div>

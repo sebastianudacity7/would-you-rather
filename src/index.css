@@ -16,6 +16,12 @@ code {
     monospace;
 }
 
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
 .avatar {
   height: 50px;
   border-radius: 25px;
@@ -32,8 +38,7 @@ code {
   cursor: pointer;
 }
 
-
-.unansweredQuestion {
+.questionDetails {
   width: 100%;
   max-width: 590px;
   padding: 10px;
@@ -43,8 +48,86 @@ code {
 
 }
 
+.newQuestion {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  margin: 40px auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+}
+
+.answeredOption {
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  padding: 5px;
+  margin-left:130px;
+  margin-right:130px;
+  margin-top: 10px;
+}
+
+.votedOption {
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  padding: 5px;
+  margin-left:130px;
+  margin-right:130px;
+  background-color: lightgrey;
+  margin-top: 10px;
+
+}
+
 .voteButton {
   width: 300px;
-  text-align: left;
   padding: 2px;
+}
+
+.menuItemDivider {
+  margin:2px;
+}
+
+.curentUser {
+  margin:5px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.votedIcon {
+  margin-left: 5px;
+}
+
+.loginBox {
+  margin: 150px;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  padding: 50px;
+
+  text-align: center;
+  
+}
+
+.inputBox {
+  margin:20px
+}
+
+.newOptionBox {
+  margin:10px;
+  min-width:350px
+  
+}
+
+.loginBtn {
+  width:100px
+}
+
+.selectedMenuItem {
+  font-weight: bold;
+}
+
+.menuItem {
+  font-weight: normal;
+}
+
+.label {
+  margin: 2px;
 }

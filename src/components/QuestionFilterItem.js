@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 const QuestionFilterItem = ({ path, selected, text, last }) => {
 
-    const fontWeight = selected
-        ? 'bold'
-        : 'normal'
+    const itemClass = selected
+        ? "selectedMenuItem"
+        : "menuItem"
 
     return (
         <span>
-            <Link to={path} style={{ fontWeight: fontWeight }}>{text}</Link>
-            {!last && <span>|</span>}
+            <Link to={path} className={itemClass}>{text}</Link>
+            {!last && <span className="menuItemDivider">|</span>}
         </span>
     )
 }

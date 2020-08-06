@@ -5,19 +5,24 @@ import { getScore } from '../api/user'
 
 import UserAvatar from './UserAvatar'
 
+import { Tag } from "@blueprintjs/core";
+
 const UserBadge = ({ name, score, questionCount, answerCount, userId }) => {
 
     return (
         <div>
             <div>
-                <h3>{name}</h3>
+                <h3>{name}</h3> 
                 <UserAvatar userId={userId} />
+                <Tag round={true}>Score: {score} </Tag>
 
             </div>
 
-            <div>Questions: {questionCount}</div>
-            <div>Answers: {answerCount}</div>
-            <div>Score: {score} </div>
+            <div>
+                <span className="label">Questions: {questionCount}</span>
+                <span className="label">Answers: {answerCount}</span>
+            </div>
+
         </div>
     )
 }

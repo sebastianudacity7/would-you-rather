@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Question from './Question'
 import UserAvatar from './UserAvatar'
 
-const PollPage = ({id,auhtorId}) => {
+const PollPage = ({id,auhtorId,authorName}) => {
 
     if(!id) {
         return (<div>404: Poll doesn't exist</div>)
@@ -12,18 +12,20 @@ const PollPage = ({id,auhtorId}) => {
 
     return (
         <div>
-            <h3>Poll Results</h3>
+            <h3>Question by <span>{authorName}</span></h3>
 
             <UserAvatar userId={auhtorId}/>
-            <Question id={id} showResults={true}/>
+            <Question id={id} showDetails={true}/>
         </div>
     )
 }
 
-export default connect(({questions},props) => {
+export default connect(({questions, users},props) => {
     const q = questions[props.match.params.id]
+
     return {
         id:q?.id,
-        auhtorId:q?.author
+        auhtorId:q?.author,
+        authorName: users[q?.author]?.name
     }
 })(PollPage)

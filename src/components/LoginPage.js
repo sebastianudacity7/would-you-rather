@@ -32,14 +32,16 @@ const LoginPage = ({ dispatch, users }) => {
     const isLoginDisabled = () => !selectedUser
 
     return (
-        <div>
+        <div className="loginBox">
+            <h3>Welcome to Would You Rather Game</h3>
+            
             <form>
                 <div>
-                    <select onChange={onUserSelected} value={selectedUser}  >
+                    <select onChange={onUserSelected} value={selectedUser}  className="inputBox" >
                         {users.map(({ id, name }) => <option key={id} value={id} >{name}</option>)}
                     </select>
                 </div>
-                <Button  intent="primary" onClick={onLogIn} disabled={isLoginDisabled()}>Login</Button>
+                <Button  intent="primary" onClick={onLogIn} disabled={isLoginDisabled()} className="loginBtn">Login</Button>
             </form>
         </div>
     )

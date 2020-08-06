@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import NewQuestionOption from './NewQuestionOption'
 import { addNewQuestionAsync } from '../actions/questions'
 
-import { Button} from "@blueprintjs/core"
+import { Button } from "@blueprintjs/core"
 
 const NewQuestion = ({ dispatch, authUser }) => {
 
@@ -43,24 +43,31 @@ const NewQuestion = ({ dispatch, authUser }) => {
 
     return (
         <div>
-            <form>
-                <h3>Would You Rather...</h3>
-                <div>
-                    <NewQuestionOption
-                        isRadOnly={isBusy}
-                        label="A"
-                        value={optionOne}
-                        onChange={e => onOptionChanged(e, setOptionOne)} />
-                </div>
-                <div>
-                    <NewQuestionOption
-                        isRadOnly={isBusy}
-                        label="B"
-                        value={optionTwo}
-                        onChange={e => onOptionChanged(e, setOptionTwo)} />
-                </div>
-                <Button loading={isBusy} disabled={isSubmitDisabled()} onClick={onSubmitNewQuestion}>Submit</Button>
-            </form>
+            <h3>Create New Question</h3>
+            <div className="newQuestion">
+                <form>
+                    <h3>Would You Rather...</h3>
+                    <div className="newOptionBox">
+                        <NewQuestionOption
+                            isRadOnly={isBusy}
+                            label="A"
+                            value={optionOne}
+                            onChange={e => onOptionChanged(e, setOptionOne)} />
+                    </div>
+                    <div className="newOptionBox">
+                        <NewQuestionOption
+                            isRadOnly={isBusy}
+                            label="B"
+                            value={optionTwo}
+                            onChange={e => onOptionChanged(e, setOptionTwo)} />
+                    </div>
+                    <Button
+                        type="submit"
+                        loading={isBusy}
+                        disabled={isSubmitDisabled()}
+                        onClick={onSubmitNewQuestion}>Submit</Button>
+                </form>
+            </div>
         </div>
     )
 }

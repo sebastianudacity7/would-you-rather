@@ -6,7 +6,7 @@ const QuestionVotingOption = ({ text, onClick }) => {
 
     return (
         <div >
-            <Button className="voteButton" onClick={onClick} >{text}</Button>
+            <Button  className="voteButton" onClick={onClick} >{text}</Button>
         </div>
     )
 }
