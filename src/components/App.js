@@ -42,7 +42,6 @@ const App = ({ authUser, dispatch }) => {
         <SecureRoute path="/questions/:id" component={PollPage} />
         <SecureRoute path="*" component={NotFound} ></SecureRoute>
       </Switch>
-
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { getScore } from '../api/user'
 
 import UserAvatar from './UserAvatar'
 
-import { Tag } from "@blueprintjs/core";
+import ScoreTag from './ScoreTag'
 
 const UserBadge = ({ name, score, questionCount, answerCount, userId }) => {
 
@@ -16,7 +16,7 @@ const UserBadge = ({ name, score, questionCount, answerCount, userId }) => {
             </div>
             <div>{name}</div>
             <div className="scoreTag">
-                <Tag round={true} >Score: {score}  </Tag>
+                <ScoreTag score={score} />
             </div>
 
             <div>
