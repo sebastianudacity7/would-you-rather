@@ -4,7 +4,14 @@ Project implements 'Would You Rather' game where users are given questions with 
 Players can answer existing questions and also submit their own questions.
 The player with most answers and submitted questions wins.
 
-Note:
+## TL;DR
+
+To get started use:
+
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
+
+#  Project requirements notes:
 
 1) The project specification says "Once the user logs in, the home page is shown."
    It's not clear from the requirement whether it should happen every time or on the first time login only.
@@ -19,9 +26,3 @@ Note:
     I think there is no need to show it on the login page and hence the navigation bar is hidden there.
 
 
-## TL;DR
-
-To get started use:
-
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
