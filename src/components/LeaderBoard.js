@@ -8,7 +8,7 @@ import UserBadge from './UserBadge'
 const LeaderBoard = ({ users }) => {
     return (
         <div>
-            <h3>Leaderboard</h3>
+            <h3>Best Players</h3>
             <ul>
                 {users.map(u => (<li key={u.id}><UserBadge id={u.id} /></li>))}
             </ul>

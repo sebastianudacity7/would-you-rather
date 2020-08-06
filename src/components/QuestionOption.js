@@ -18,7 +18,6 @@ const QuestionOption = ({ option, showResults }) => {
             {showResults && (
                 <div>
                     <span>{voteCount} out of {totalVoteCount} votes  ({votePercent}%)</span>
-
                 </div>
             )}
         </div>

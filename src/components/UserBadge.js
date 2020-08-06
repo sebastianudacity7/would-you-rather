@@ -12,10 +12,11 @@ const UserBadge = ({ name, score, questionCount, answerCount, userId }) => {
     return (
         <div>
             <div>
-                <h3>{name}</h3> 
                 <UserAvatar userId={userId} />
-                <Tag round={true}>Score: {score} </Tag>
-
+            </div>
+            <div>{name}</div>
+            <div className="scoreTag">
+                <Tag round={true} >Score: {score}  </Tag>
             </div>
 
             <div>
